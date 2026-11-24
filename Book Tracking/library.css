@@ -1,16 +1,5 @@
-/* library.html'e özel stiller. Renkler ve menü, ana sayfayla (index.html) aynı. */
-body { margin: 0; background-color: burlywood; font-family: Arial, sans-serif; color: #333; }
-
-/* ÜST MENÜ (index.html ile aynı) */
-.page-select { position: sticky; top: 0; z-index: 10; background-color: black; padding: 15px;
-    display: flex; justify-content: center; align-items: center; gap: 30px; }
-.logo { color: white; font-size: 22px; font-weight: bold; text-decoration: none; margin-right: 30px; }
-.pages { color: chocolate; text-decoration: none; font-size: 18px; }
-.logo:hover { color: chocolate; }
-.pages:hover, .pages.aktif { color: white; }
-
-.bolum { padding: 30px; max-width: 1100px; margin: 0 auto; }
-.bolum h1 { margin: 0 0 8px; border-bottom: 3px solid black; padding-bottom: 10px; }
+/* library.html'e özel stiller. Ortak stiller (arka plan, menü, kapak, alt bilgi) style.css içinde. */
+.bolum h1 { margin: 0 0 8px; }
 .giris { margin: 12px 0 20px; color: #5a2d0c; }
 
 /* Arama, filtre, görünüm düğmeleri */
@@ -28,9 +17,6 @@ body { margin: 0; background-color: burlywood; font-family: Arial, sans-serif; c
 .kitap-link { text-decoration: none; color: inherit; display: flex; }
 .kapak { flex-shrink: 0; aspect-ratio: 2 / 3; border-radius: 2px 6px 6px 2px; box-shadow: 4px 0 6px rgba(0,0,0,0.4); overflow: hidden; }
 .kapak img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.bos-kapak { width: 100%; height: 100%; box-sizing: border-box; border-left: 8px solid rgba(0,0,0,0.3);
-    background-color: saddlebrown; color: white; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 10px; font-weight: bold; }
 .ad { margin: 0; font-weight: bold; }
 .yazar { margin: 4px 0 0; color: #5a2d0c; font-size: 14px; }
 .bilgi { margin: 4px 0 0; font-size: 13px; }
@@ -59,9 +45,8 @@ body { margin: 0; background-color: burlywood; font-family: Arial, sans-serif; c
 .liste .bos-kapak { font-size: 11px; padding: 4px; }
 
 .bos { padding: 28px; text-align: center; color: #5a2d0c; border: 2px dashed #5a2d0c; border-radius: 6px; }
-.alt-bilgi { background-color: black; color: white; text-align: center; padding: 15px; margin-top: 30px; }
+.alt-bilgi { margin-top: 30px; }
 
 @media (max-width: 900px) {
-    .page-select { flex-wrap: wrap; gap: 15px; }
     .bolum { padding: 20px 14px; }
 }
