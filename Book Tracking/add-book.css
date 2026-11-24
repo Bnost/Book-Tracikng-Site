@@ -1,0 +1,76 @@
+/* add-book.html'e özel stiller. Üç sütunlu düzen ve durum düğmeleri style.css içinde. */
+
+/* Artı işaretli kapak alanı: tıklayınca dosya seçme penceresi açılır */
+.kapak-sec{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 3px dashed #5a2d0c;
+    border-radius: 6px;
+    background-color: #fff8ee;
+    color: #5a2d0c;
+    cursor: pointer;
+}
+.kapak-sec:hover{
+    background-color: white;
+}
+.kapak-sec:focus-within{
+    outline: 3px solid black;   /* klavye kullanırken görünsün */
+}
+.kapak-sec input{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;                 /* dosya kutusu görünmez, artı alanı onun yerine geçer */
+}
+#kapak-arti{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#kapak-arti[hidden], #kapak-onizleme[hidden]{
+    display: none;
+}
+.arti{
+    font-size: 90px;
+    line-height: 1;
+}
+
+/* Bilgi formu */
+.kitap-form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.kitap-form label{
+    font-weight: bold;
+}
+.kitap-form input, .kitap-form textarea{
+    padding: 10px;
+    border: 2px solid #5a2d0c;
+    border-radius: 5px;
+    background-color: #fff8ee;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.kitap-form textarea{
+    resize: vertical;
+}
+#hata{
+    color: darkred;
+    font-weight: bold;
+}
+#kaydet{
+    align-self: flex-start;
+    padding: 12px 30px;
+}

@@ -97,6 +97,86 @@ body{
     font-size: 18px;
     font-weight: bold;
 }
+
+/* YILDIZLAR: dolu yıldızlar boşların üstüne absolute ile biner, genişliği puana göre kesilir */
+.yildizlar{
+    position: relative;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.25);
+}
+.yildiz-dolu{
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #a63c00;
+}
+
+/* ÜÇ SÜTUN (detay ve kitap ekleme sayfaları): solda kapak, ortada bilgiler, sağda durum */
+.detay-kapsayici{
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+.buyuk-kapak{
+    width: 300px;
+    flex-shrink: 0;    /* kapak daralmasın */
+    aspect-ratio: 2 / 3;
+}
+.buyuk-kapak img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px 6px 6px 2px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Orta sütun */
+.bilgiler{
+    flex: 1;           /* kalan yeri kaplar */
+    min-width: 0;
+}
+.bilgiler h1{
+    overflow-wrap: break-word;
+    margin-top: 0;
+}
+.bilgiler p{
+    margin: 8px 0;
+}
+
+/* Sağdaki küçük sütun */
+.durum-sutunu{
+    width: 130px;
+    flex-shrink: 0;
+}
+.durum-sutunu h2{
+    margin: 0 0 15px 0;
+    font-size: 18px;
+}
+.durumlar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.durum{
+    padding: 10px;
+    border: 2px solid #5a2d0c;
+    border-radius: 5px;
+    background-color: #fff8ee;
+    color: #5a2d0c;
+    font-size: 15px;
+    cursor: pointer;
+}
+.durum:hover{
+    background-color: white;
+}
+.secili, .secili:hover{
+    background-color: saddlebrown;
+    color: white;
+}
+
 /* ALT BİLGİ */
 .alt-bilgi{
     background-color: black;
@@ -113,5 +193,19 @@ body{
     }
     .kapak-resmi{
         height: 250px;
+    }
+}
+
+/* Küçük ekranda sütunlar alt alta */
+@media (max-width: 900px) {
+    .detay-kapsayici{
+        flex-direction: column;
+        align-items: center;
+    }
+    .bilgiler, .durum-sutunu{
+        width: 100%;
+    }
+    .buyuk-kapak{
+        width: 220px;
     }
 }

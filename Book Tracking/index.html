@@ -5,112 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Tracking | Home</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Sadece ana sayfaya özel stiller. Ortak stiller style.css içinde. */
-
-        /* BU HAFTANIN ÜST RAFLARI */
-        /* Bir raf: kitaplar yan yana dizilir, altlarında kahverengi tahta durur */
-        .raf{
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;     /* kitaplar rafın tabanına otursun */
-            padding: 20px 10px 0 10px;
-        }
-        .raf-tahta{
-            height: 18px;
-            background-color: saddlebrown;
-            border-bottom: 6px solid #5a2d0c;   /* tahtanın kalın ön kenarı */
-            border-radius: 3px;
-            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Raftaki tek kitap */
-        .kitap{
-            position: relative;    /* özet kutusu kitaba göre konumlansın */
-            width: 16%;
-            aspect-ratio: 2 / 3;   /* kitap kapağı oranı */
-            display: block;
-            text-decoration: none;
-        }
-        .kitap-kapak{
-            display: block;   /* kapağın altında boşluk kalmasın */
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 2px 6px 6px 2px;
-            box-shadow: 4px 0 6px rgba(0, 0, 0, 0.4);
-        }
-        /* Üstüne gelince çıkan özet: absolute ile kapağın üstüne biner */
-        .kitap-ozet{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            box-sizing: border-box;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.85);
-            color: white;
-            font-size: 13px;
-            border-radius: 2px 6px 6px 2px;
-            display: none;
-        }
-        .kitap:hover .kitap-ozet{
-            display: block;
-        }
-        .kitap:hover{
-            transform: translateY(-8px);   /* raftan biraz kalkar */
-        }
-
-        /* Rafta henüz kitap olmayan yer */
-        .bos-yer{
-            width: 16%;
-            aspect-ratio: 2 / 3;
-            box-sizing: border-box;
-            border: 2px dashed #5a2d0c;
-            border-radius: 6px;
-            color: #5a2d0c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        /* Rafın altındaki ad / yazar yazıları (kitaplarla aynı hizada) */
-        .etiketler{
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 10px 30px 10px;
-        }
-        .etiket{
-            width: 16%;
-            text-align: center;
-        }
-        .kitap-ad{
-            font-weight: bold;
-            margin: 0;
-        }
-        .kitap-yazar{
-            color: #5a2d0c;
-            font-size: 14px;
-            margin: 4px 0 0 0;
-        }
-
-        /* Küçük ekranda raftaki yazılar küçülür */
-        @media (max-width: 900px) {
-            .bos-kapak{
-                font-size: 11px;
-                padding: 4px;
-            }
-            .kitap-ozet{
-                font-size: 10px;
-            }
-            .kitap-ad, .kitap-yazar{
-                font-size: 11px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -127,12 +22,12 @@
     <div class="kapak-alani">
         <img class="kapak-resmi" src="kitap-rafi.jpg" alt="Kitap rafı">
         <div class="kapak-yazi">
-            <h1>Welcome to CU BOOK PROJECT</h1>
+            <h1>Welcome to BOOKBOX</h1>
             <p>Okuduğun kitapları takip et, puanla ve yenilerini keşfet.</p>
         </div>
     </div>
 
-    <!-- Bu haftanın üst rafları: 2 raf x 5 kitap, kitaplar books.js'ten gelir -->
+    <!-- Bu haftanın üst rafları: 2 raf x 5 kitap, puanı en yüksek 10 kitap books.js'ten gelir -->
     <div class="bolum">
         <h2>Bu Haftanın Üst Rafları</h2>
 
@@ -149,7 +44,16 @@
 
     <!-- Ortak kitap listesi -->
     <script src="books.js"></script>
+    <script src="reviews.js"></script>
+    <script src="ortak.js"></script>
     <script>
+        // Kitapları puana göre büyükten küçüğe sırala.
+        // slice() kopya alır, böylece books dizisinin kendi sırası bozulmaz.
+        // Puanı eşit olan kitaplar books.js'teki sırayla kalır.
+        let sirali = books.slice().sort(function (a, b) {
+            return b.rating - a.rating;
+        });
+
         let raf1 = "", raf2 = "";
         let etiket1 = "", etiket2 = "";
 
@@ -158,8 +62,8 @@
             let kitapHtml;
             let etiketHtml;
 
-            if (i < books.length) {
-                let kitap = books[i];
+            if (i < sirali.length) {
+                let kitap = sirali[i];
 
                 // Kapak resmi varsa resmi, yoksa adının yazdığı kahverengi kapağı göster
                 let kapak;
@@ -181,7 +85,7 @@
                         '<p class="kitap-yazar">' + kitap.author + '</p>' +
                     '</div>';
             } else {
-                // books.js'te bu sırada kitap yoksa boş yer göster
+                // bu sırada kitap yoksa boş yer göster
                 kitapHtml = '<div class="bos-yer">Boş raf yeri</div>';
                 etiketHtml = '<div class="etiket"></div>';
             }

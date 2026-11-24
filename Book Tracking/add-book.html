@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Tracking | Add Book</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="add-book.css">
 </head>
 <body>
 
@@ -23,11 +24,48 @@
     </div>
 
     <main class="bolum">
-        <h1>Kitap Ekle</h1>
-        <!-- Sayfanın içeriği buraya yazılacak -->
+        <!-- Detay sayfasıyla aynı düzen: solda kapak, ortada bilgiler, sağda durum -->
+        <div class="detay-kapsayici">
+            <div class="buyuk-kapak">
+                <label class="kapak-sec">
+                    <input type="file" id="kapak-dosya" accept="image/*" aria-label="Kapak resmi seç" onchange="kapakSec()">
+                    <img id="kapak-onizleme" alt="Seçilen kapak" hidden>
+                    <span id="kapak-arti"><span class="arti">+</span>Kapak resmi ekle</span>
+                </label>
+            </div>
+
+            <div class="bilgiler">
+                <h1>Kitap Ekle</h1>
+                <form class="kitap-form" onsubmit="kitapKaydet(event)">
+                    <label for="ad">Kitap adı</label>
+                    <input type="text" id="ad" maxlength="100" required>
+
+                    <label for="yazar">Yazar</label>
+                    <input type="text" id="yazar" maxlength="100" required>
+
+                    <label for="sayfa">Sayfa sayısı</label>
+                    <input type="number" id="sayfa" min="1" max="20000" step="1" required>
+
+                    <label for="ozet">Özet</label>
+                    <textarea id="ozet" rows="7" maxlength="3000" required></textarea>
+
+                    <p id="hata" role="alert"></p>
+                    <button type="submit" class="durum secili" id="kaydet">Kitabı Ekle</button>
+                </form>
+            </div>
+
+            <div class="durum-sutunu">
+                <h2>Durum</h2>
+                <div class="durumlar" id="durumlar"></div>
+            </div>
+        </div>
     </main>
 
     <div class="alt-bilgi">Bookbox &copy; 2026</div>
 
+    <script src="books.js"></script>
+    <script src="reviews.js"></script>
+    <script src="ortak.js"></script>
+    <script src="add-book.js"></script>
 </body>
 </html>

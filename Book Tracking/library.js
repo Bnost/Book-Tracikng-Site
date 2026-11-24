@@ -1,6 +1,6 @@
 // library.html - kitapları kart veya liste olarak gösterir.
 // books.js içindeki "books" dizisini kullanır (cover, summary dahil).
-const allBooks = books;
+const allBooks = alfabetikSirala(); // ortak.js: ada göre A'dan Z'ye
 
 const container = document.getElementById("book-container");
 const searchInput = document.getElementById("search");
@@ -17,10 +17,6 @@ let view = "cards";
   opt.textContent = s;
   statusFilter.appendChild(opt);
 });
-
-function stars(rating) {
-  return rating > 0 ? "★".repeat(rating) + "☆".repeat(5 - rating) : "Henüz puanlanmadı";
-}
 
 function statusClass(status) {
   return "durum-" + status.toLowerCase().replace(/\s+/g, "-").replace(/ı/g, "i");
@@ -60,7 +56,7 @@ function render() {
         '<p class="ad">' + b.title + '</p>' +
         '<p class="yazar">' + b.author + '</p>' +
         '<p class="bilgi">' + b.genre + ', ' + b.pages + ' sayfa</p>' +
-        '<p class="puan">' + stars(b.rating) + '</p>' +
+        '<p class="puan">' + yildizGoster(b.rating) + '</p>' +
         '<span class="rozet ' + statusClass(b.status) + '">' + b.status + '</span>' +
         '<p class="ozet">' + b.summary + '</p>' +
       '</div>';

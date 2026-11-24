@@ -25,7 +25,7 @@
 
 .rozet { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: bold; margin-top: 6px; }
 .durum-okunacak { background: #e9d8bf; color: #5a2d0c; }
-.durum-okunuyor { background: #fde2a7; color: #7a4a00; }
+.durum-okuyorum { background: #fde2a7; color: #7a4a00; }
 .durum-okundu { background: #cfe8cf; color: #1f5a2a; }
 
 /* Kart görünümü */
