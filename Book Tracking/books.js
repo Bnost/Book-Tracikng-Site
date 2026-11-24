@@ -2,7 +2,7 @@
 // Sabit alanlar: id, title, author, pages, genre, status, rating
 // Ana sayfa için eklenen alanlar: cover (kapak resmi yolu), summary (kısa özet)
 // cover boş bırakılırsa ana sayfada kitabın adının yazdığı renkli bir kapak çıkar.
-// Ana sayfadaki raflarda 10 yer var; burada kaç kitap varsa o kadarı dolu görünür.
+// Ana sayfadaki raflarda 10 yer var; şimdilik listedeki ilk 10 kitap görünür.
 
 const books = [
   { id: 1, title: "Kızıl Yükseliş", author: "Pierce Brown", pages: 448, genre: "Bilim Kurgu", status: "Okunacak", rating: 0,
@@ -20,5 +20,17 @@ const books = [
   { id: 7, title: "Suç ve Ceza", author: "Dostoyevski", pages: 687, genre: "Roman", status: "Okunacak", rating: 0,
     cover: "kapaklar/suc-ve-ceza.jpg", summary: "Yoksul bir öğrenci olan Raskolnikov'un işlediği bir cinayetin ardından yaşadığı vicdan azabını anlatır." },
   { id: 8, title: "Simyacı", author: "Paulo Coelho", pages: 184, genre: "Roman", status: "Okunacak", rating: 0,
-    cover: "kapaklar/simyaci.jpg", summary: "Çoban Santiago'nun hazinesini bulmak için çıktığı ve kendini keşfettiği yolculuk." }
+    cover: "kapaklar/simyaci.jpg", summary: "Çoban Santiago'nun hazinesini bulmak için çıktığı ve kendini keşfettiği yolculuk." },
+  { id: 9, title: "Son Dilek (The Witcher 1)", author: "Andrzej Sapkowski", pages: 400, genre: "Fantastik", status: "Okunacak", rating: 0,
+    cover: "kapaklar/son-dilek.jpg", summary: "Canavar avcısı Witcher Geralt'ın, kimin gerçek canavar olduğunu sorgulatan birbirine bağlı öyküleri." },
+  { id: 10, title: "Kader Kılıcı (The Witcher 2)", author: "Andrzej Sapkowski", pages: 440, genre: "Fantastik", status: "Okunacak", rating: 0,
+    cover: "kapaklar/kader-kilici.jpg", summary: "Geralt'ın yeni maceraları sürerken yolu, kaderinin bağlı olduğu küçük prenses Ciri ile kesişir." },
+  { id: 11, title: "Tanrıların Gölgesi", author: "John Gwynne", pages: 576, genre: "Fantastik", status: "Okunacak", rating: 0,
+    cover: "kapaklar/tanrilarin-golgesi.jpg", summary: "Tanrıların savaşında yıkılmış, Viking esintili bir dünyada üç savaşçının kesişen yolları." },
+  { id: 12, title: "Tanrıların Açlığı", author: "John Gwynne", pages: 688, genre: "Fantastik", status: "Okunacak", rating: 0,
+    cover: "kapaklar/tanrilarin-acligi.jpg", summary: "Tanrıların Gölgesi'nin devamı: ejderha tanrı Lik-Rifa serbest kalmıştır ve dünya yeni bir savaşa sürüklenir." },
+  { id: 13, title: "Yaşamak", author: "Yu Hua", pages: 210, genre: "Roman", status: "Okunacak", rating: 0,
+    cover: "kapaklar/yasamak.webp", summary: "Servetini kumarda kaybeden Fugui'nin, Çin'in çalkantılı yıllarında kayıplara rağmen hayata tutunması." },
+  { id: 14, title: "Otomatik Portakal", author: "Anthony Burgess", pages: 171, genre: "Distopya", status: "Okunacak", rating: 0,
+    cover: "kapaklar/otomatik-portakal.jpg", summary: "Şiddet düşkünü genç Alex'in devlet eliyle zorla iyileştirilmesi üzerinden özgür iradeyi sorgular." }
 ];
