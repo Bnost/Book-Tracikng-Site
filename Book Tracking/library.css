@@ -1,0 +1,67 @@
+/* library.html'e özel stiller. Renkler ve menü, ana sayfayla (index.html) aynı. */
+body { margin: 0; background-color: burlywood; font-family: Arial, sans-serif; color: #333; }
+
+/* ÜST MENÜ (index.html ile aynı) */
+.page-select { position: sticky; top: 0; z-index: 10; background-color: black; padding: 15px;
+    display: flex; justify-content: center; align-items: center; gap: 30px; }
+.logo { color: white; font-size: 22px; font-weight: bold; text-decoration: none; margin-right: 30px; }
+.pages { color: chocolate; text-decoration: none; font-size: 18px; }
+.logo:hover { color: chocolate; }
+.pages:hover, .pages.aktif { color: white; }
+
+.bolum { padding: 30px; max-width: 1100px; margin: 0 auto; }
+.bolum h1 { margin: 0 0 8px; border-bottom: 3px solid black; padding-bottom: 10px; }
+.giris { margin: 12px 0 20px; color: #5a2d0c; }
+
+/* Arama, filtre, görünüm düğmeleri */
+.arac-cubugu { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 14px; }
+.arac-cubugu input, .arac-cubugu select { padding: 10px 12px; border: 2px solid #5a2d0c; border-radius: 4px;
+    font-size: 15px; background: #fff8ee; }
+.arac-cubugu input { flex: 1 1 220px; }
+.gorunum { display: flex; border: 2px solid #5a2d0c; border-radius: 4px; overflow: hidden; }
+.gorunum button { padding: 10px 18px; border: 0; background: #fff8ee; color: #5a2d0c; font-size: 15px; cursor: pointer; }
+.gorunum button[aria-pressed="true"] { background: saddlebrown; color: white; }
+#count { margin: 0 0 18px; color: #5a2d0c; font-size: 14px; }
+:focus-visible { outline: 3px solid black; outline-offset: 2px; }
+
+/* Kitap kapakları (ana sayfadaki kitap görünümüyle aynı) */
+.kitap-link { text-decoration: none; color: inherit; display: flex; }
+.kapak { flex-shrink: 0; aspect-ratio: 2 / 3; border-radius: 2px 6px 6px 2px; box-shadow: 4px 0 6px rgba(0,0,0,0.4); overflow: hidden; }
+.kapak img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bos-kapak { width: 100%; height: 100%; box-sizing: border-box; border-left: 8px solid rgba(0,0,0,0.3);
+    background-color: saddlebrown; color: white; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 10px; font-weight: bold; }
+.ad { margin: 0; font-weight: bold; }
+.yazar { margin: 4px 0 0; color: #5a2d0c; font-size: 14px; }
+.bilgi { margin: 4px 0 0; font-size: 13px; }
+.puan { margin: 4px 0 0; color: #8b4a00; font-size: 14px; }
+.ozet { margin: 8px 0 0; font-size: 13px; }
+
+.rozet { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: bold; margin-top: 6px; }
+.durum-okunacak { background: #e9d8bf; color: #5a2d0c; }
+.durum-okunuyor { background: #fde2a7; color: #7a4a00; }
+.durum-okundu { background: #cfe8cf; color: #1f5a2a; }
+
+/* Kart görünümü */
+.kart-izgara { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 28px 22px; }
+.kart-izgara .kitap-link { flex-direction: column; }
+.kart-izgara .kapak { width: 100%; }
+.kart-izgara .kitap-link:hover .kapak { transform: translateY(-8px); }
+.kart-izgara .bos-kapak { font-size: 18px; }
+.kart-izgara .metin { padding-top: 12px; text-align: center; }
+.kart-izgara .ozet { display: none; }
+
+/* Liste görünümü */
+.liste { display: flex; flex-direction: column; gap: 12px; }
+.liste .kitap-link { gap: 18px; background: #fff8ee; border: 2px solid #5a2d0c; border-radius: 6px; padding: 12px; align-items: flex-start; }
+.liste .kitap-link:hover { background: white; }
+.liste .kapak { width: 70px; }
+.liste .bos-kapak { font-size: 11px; padding: 4px; }
+
+.bos { padding: 28px; text-align: center; color: #5a2d0c; border: 2px dashed #5a2d0c; border-radius: 6px; }
+.alt-bilgi { background-color: black; color: white; text-align: center; padding: 15px; margin-top: 30px; }
+
+@media (max-width: 900px) {
+    .page-select { flex-wrap: wrap; gap: 15px; }
+    .bolum { padding: 20px 14px; }
+}

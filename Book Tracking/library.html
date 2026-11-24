@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Tracking | Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="library.css">
 </head>
 <body>
-    
+
+    <!-- Herkesin sayfasında aynı olan menü -->
+    <nav class="page-select">
+        <a class="logo" href="index.html">Bookbox</a>
+        <a class="pages aktif" href="library.html">Kitaplığım</a>
+        <a class="pages" href="details.html">Kitap Detayı</a>
+        <a class="pages" href="add-book.html">Kitap Ekle</a>
+        <a class="pages" href="history.html">Okuma Geçmişi</a>
+    </nav>
+
+    <main class="bolum">
+        <h1>Kitaplığım</h1>
+        <p class="giris">Bütün kitaplarını burada gör. Ayrıntıları için bir kitaba tıkla.</p>
+
+        <div class="arac-cubugu">
+            <input type="search" id="search" placeholder="Kitap adı veya yazar ara" aria-label="Kitap ara">
+            <select id="status-filter" aria-label="Duruma göre filtrele">
+                <option value="all">Tüm durumlar</option>
+            </select>
+            <div class="gorunum">
+                <button type="button" data-view="cards" aria-pressed="true">Kartlar</button>
+                <button type="button" data-view="list" aria-pressed="false">Liste</button>
+            </div>
+        </div>
+
+        <p id="count"></p>
+        <div id="book-container"></div>
+    </main>
+
+    <div class="alt-bilgi">Bookbox &copy; 2026</div>
+
+    <script src="books.js"></script>
+    <script src="library.js"></script>
 </body>
 </html>
